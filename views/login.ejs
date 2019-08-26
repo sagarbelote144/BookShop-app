@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<title>My Books</title>
+<script src="/Javascript/ButtonClick.js"></script>
+<link href="/assets/style.css" rel="stylesheet" type="text/css">
+<body>
+        <% include header.ejs %>
+        <% include user-navigation.ejs %>
+        <% include site-navigation.ejs %>
+
+        <div>
+                <h2 class= "signInHeader">
+                        Welcome to online book shop
+                </h2>
+   
+    <p>
+          
+        <form action="/signIn" method="POST">
+            <table>
+                   
+                <tr>
+                    <td>
+                        <label>Email ID</label></td>
+                    <td>
+                        <input type="textfield" name="emailId"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Password</label></td>
+                    <td>
+                        <input class="psw" type="password" name="password" id="myInput"/>
+                        <br>
+                        <br>
+                        <input type="checkbox" onclick="myPassword()">Show Password
+                       
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+            
+            <input hidden name="actionFlag" value="onSignIn">
+            <!-- <input hidden name="theItem" value="999">  -->
+
+            <input class="upsignIn" type="submit" value="Login" />
+            <!-- <input type="submit" value="Save Student" action="/allStudents" method="POST" /> -->
+            <span>
+            <button class="upRegOnSignin" type="button" onclick="location.href = '/register'">Register</button>
+        </form>
+        <div class= "hint">
+            <p>
+                <h4>
+                        Password Hint:
+                </h4>
+                
+                    1.  Must be of length 8 or greater than it.
+                    <br>
+                    2.  Must have atleast one uppercase character.
+                    <br>
+                    3.  Must have atleast one lowercase character.
+                    <br>
+                    4.  Must have atleast one special character.
+            </p>
+            
+        </div>
+        
+    </p>
+
+ 
+   
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    <% include footer.ejs %>
+    
+</body>
+
+</html>

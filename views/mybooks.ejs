@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<title>My Books</title>
+<script src="/Javascript/ButtonClick.js"></script>
+<link href="/assets/style.css" rel="stylesheet" type="text/css">
+
+<body>
+	<!-- <header class="banner"> -->
+      <% include header1.ejs %>
+    <% include user-navigation1.ejs %>
+    <% include site-navigation.ejs %>
+
+<h2 class= "mybookshead">My Books</h2>
+
+
+    <table>
+            <tr>
+              <th>Book Name</th>
+              <th>Category</th>
+              <th>My Ratings</th>
+              <th>Bought It</th>
+              <th></th>
+              <th></th>
+
+            </tr>
+            <% for(let i = 0; i < userItems.length; i++) { %>
+              <tr>
+          
+                  <td><%= userItems[i].itemName %></td>
+                  <td><%= userItems[i].catalogCategory %></td>
+                  <td><%= userItems[i].rating %></td>
+                  <td><%= userItems[i].baughtIt %></td>
+          
+                  <!-- <td><button  class="up" type="button" onclick="item()">Update</button></td>
+                  <td><button  class="del" type="button" onclick="mybooks()">Delete</button></td> -->
+                  <td>
+                      <button class="up" type="button" onclick="location.href = '/mybooks?actionFlag=update&theItem=<%=userItems[i].itemCode%>'">Update</button>
+                  </td>
+                  <td>
+                      <button class="del" type="button" onclick="location.href = '/mybooks?actionFlag=delete&theItem=<%=userItems[i].itemCode%>'">Delete</button>
+                    </td>
+                  
+                </tr>
+            <% } %>
+
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- <footer class="mybooksfooter"> -->
+    <% include footer.ejs %>
+	<!-- <p>&copy;E-Books Inc</p> -->
+<!-- </footer> -->
+
+</body>
+
+</html>

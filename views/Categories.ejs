@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<title>Categories</title>
+<link href="/assets/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<!-- <header class="banner"> -->
+			<% include header.ejs %>
+		<!-- <h5 class= "sign">Not signed in.</h5>
+	<h1><img class= "bammerimg" src="Books.jpg" alt="bb" style="width:50px;height:47px;"/>E-Books</h1>
+	<p>Order books online</p> -->
+<!-- </header> -->
+
+<!-- <nav> -->
+		<% include user-navigation.ejs %>
+	<!-- <ul>
+		<li><a href="signin.html">Sign In</a></li>
+		<li><a href="mybooks.html">My Books</a></li>
+		<li><a href= "cart.html">Cart</a></li>
+	</ul> -->
+
+<!-- </nav> -->
+<!-- <aside> -->
+		<% include site-navigation.ejs %>
+<!-- <nav class="sidenav"> -->
+	<!-- <ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="categories.html">Categories</a></li>
+		<li><a href="store.html">Store</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="contactus.html">Contact Us</a></li>
+	</ul> -->
+
+
+
+<!-- </aside> -->
+
+
+<div>
+	
+	<%
+		console.log("Categories:"+data.categories);
+		for(var i=0; i< data.categories.length; i++){ %>
+<section class="cat">
+	<header>
+			<a class="catAddnew" href="/addNewItem">Add New</a>
+	<h2><%= data.categories[i] %></h2>
+	<h3 class= "subitems">
+		<% for(var j=0; j< data.items.length; j++){
+			if(data.categories[i] === data.items[j].catalogCategory){%>
+				<a href="/categories/item/<%= data.items[j].itemCode %>"><%= data.items[j].itemName %></a>
+				<br>
+			<% }
+		}
+		%>
+	<!-- <a class="itpm" href="/item">Information technology and project management</a>
+	<br>
+	<a href="/item">System Integration</a>
+	<br>
+	<a href="/item">Network based application development</a> -->
+</h3>
+	</header>
+
+</section>
+<!-- <section class="cat2">
+	<header>
+	<h2>Novels</h2>
+	<h3 class= "subitems2">
+	<a href="/item">The wings of fire</a>
+	<br>
+	<a href="/item">Steve Jobs</a>
+	<br>
+	<a href="/item">Five point someone</a>
+</h3>
+	</header>
+	
+</section> -->
+<% } %>
+</div>
+<br>
+
+
+
+
+<!-- <footer class="catfooter"> -->
+		<% include footer.ejs %>
+<!-- </footer> -->
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<title>Books</title>
+<link href="/assets/style.css" rel="stylesheet" type="text/css">
+<script src="./Javascript/ButtonClick.js"></script>
+
+    <body>
+                <% include header.ejs %>
+                <% include user-navigation.ejs %>
+
+                <% include site-navigation.ejs %>
+
+        <div class="itemhead">
+            <h2>
+                Give your feedback
+            </h2>
+
+        </div>
+        <div class="container">
+
+                <%= userItems[0].itemName %>
+            </h4>
+
+            <br>
+            Item Rating : <%= userItems[0].rating %>
+            
+            <!-- <h4>Rating = <%= userItems._rating%></h4> -->
+                            <p id="posi1">
+                            <!-- <img src="../assets/images/Acadbooks.jpg" alt="Academic Books" style="width:20%"> -->
+                            <img src='<%= userItems[0].imgUrl %>' alt="" style="width:20%">
+                    </p>
+
+                    <form class="form" method="get" action="/mybooks">
+
+                        <label></label>
+                        <select name="rating">
+                                <option value="">Select your ratings</option>
+                                <option value="5">5 Stars ★ ★ ★ ★ ★</option>
+                                <option value="4">4 Stars ★ ★ ★ ★ ☆</option>
+                                <option value="3">3 Stars ★ ★ ★ ☆ ☆</option>
+                                <option value="2">2 Stars ★ ★ ☆ ☆ ☆</option>
+                                <option value="1">1 Stars ★ ☆ ☆ ☆ ☆</option>
+                            </select>
+                            <!-- <input type="radio" name="baughtIt" value="Yes"> Yes<br>
+                            <input type="radio" name="baughtIt" value="No"> No<br> -->
+                            <input hidden name="theItem" value="<%=userItems[0].itemCode %>">
+                            <input hidden name="actionFlag" value="updateRating">
+                            <!-- <input hidden name="baughtIt" value="Yes"> -->
+                            <button class="clickConfirm" type="submit">Confirm Rating</button>
+
+                        <!-- <input type="Confirm Rating" value="Confirm Rating" class="clickConfirm">
+                        <input type="I made it" value="I made it"> -->
+                    <!-- <button class="clickConfirm" onclick="location.href = '/mybooks?action=updateRating&rating=value&theItem=<%=userItems._itemCode%>'" type="button">Confirm rating ★</button>             -->
+                    <!-- <button class="clickIMadeIt" onclick="Ok" type="button">I bought it...!!!</button> -->
+                      </form>
+                      <form class="form" method="get" action="/mybooks">
+
+                        <label></label>
+
+                            <br>
+                            <select name="baughtIt">
+                                    <option value="">Select baught it status</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            <!-- <button class="clickIMadeIt" type="button">I bought it...!!!</button> -->
+                            <!-- <input type="radio" name="baughtIt" value="Yes"> Yes<br>
+                            <input type="radio" name="baughtIt" value="No"> No<br> -->
+                            <input hidden name="theItem" value="<%=userItems[0].itemCode %>">
+                            <input hidden name="actionFlag" value="boughtIt">
+                            <!-- <input hidden name="baughtIt" value="Yes"> -->
+                            <button class="clickConfirm" type="submit">Bought It</button>
+                            <br>
+                            <br>
+                        <!-- <input type="Confirm Rating" value="Confirm Rating" class="clickConfirm">
+                        <input type="I made it" value="I made it"> -->
+                    <!-- <button class="clickConfirm" onclick="location.href = '/mybooks?action=updateRating&rating=value&theItem=<%=userItems._itemCode%>'" type="button">Confirm rating ★</button>             -->
+                    <!-- <button class="clickIMadeIt" onclick="Ok" type="button">I bought it...!!!</button> -->
+                      </form>
+                    <div class="text-block">
+                        <!-- <h2>Academic books</h2> -->
+                            <h5>
+                                Book description, Jan 28, 2019
+                            </h5>
+                            <h4>
+                                Description
+                            </h4>
+                            <p>
+                            <%= userItems[0].description %>
+                            </p>
+                    </div>
+        </div>
+        <!-- <footer class="itemsfooter"> -->
+                <% include footer.ejs %>
+        <!-- </footer> -->
+    </body>
+</html>

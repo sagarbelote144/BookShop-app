@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Items</title>
+<script src="/Javascript/ButtonClick.js"></script>
+<link href="/assets/style.css" rel="stylesheet" type="text/css">
+<!-- </head> -->
+    <body>
+        <!-- <header class="banner"> -->
+                <% include header.ejs %>
+            <!-- <h5 class="sign">
+                Not signed in.
+            </h5>
+            <h1><img class= "bammerimg" src="Books.jpg" alt="bb" style="width:50px;height:47px;"/>E-Books</h1> -->
+        <!-- </header> -->
+        <!-- <nav> -->
+                <% include user-navigation.ejs %>
+        <!-- </nav> -->
+        <!-- <aside> -->
+                <% include site-navigation.ejs %>
+        <!-- </aside> -->
+
+        <a href="/categories" class="return-category"><i class="fas fa-chevron-circle-right"></i>  Return to Category</a>
+        <div class="itemhead">
+            <h2>
+                    <%= data.item[0].itemName %>
+            </h2>
+        </div>
+        <div class="container">
+                            <!-- <p id="posi1"> -->
+                                <p>
+                            <!-- <img src="../assets/images/Acadbooks.jpeg" alt="Academic Books" style="width:20%"> -->
+                            <img src='<%= data.item[0].imgUrl %>' alt="Academic Books" class="itemImage">
+                    </p>
+            <p>
+                ★ ★ ★ ★ ☆
+            </p>
+            <button class="save" type="button" onclick="location.href = '/mybooks?actionFlag=addItem&theItem=<%=data.item[0].itemCode %>'">Save</button>
+                    <!-- <button class="save" onclick="mybooks()" type="button">Save</button> -->
+                    <!-- <button class="rate" onclick="feedback()" type="button">Rate</button> -->
+            <button class="rate" type="button" onclick="location.href = '/mybooks?actionFlag=rateIt&theItem=<%=data.item[0].itemCode %>'">Rate It</button>
+            <button class="rate" type="button" onclick="location.href = '/mybooks?actionFlag=edit&theItem=<%=data.item[0].itemCode %>'">Edit</button>
+                    <!-- <button class="back" onclick="back()" type="button">Back</button> -->
+                    <div class="text-block">
+                        <!-- <h2>Academic books</h2> -->
+                        <br>
+                            <h5>
+                                    <%= data.item[0].author %>
+                            </h5>
+                            <h4>
+                                Description
+                            </h4>
+                            <p>
+                                    <%= data.item[0].description %>
+                            </p>
+                            <!-- <h4>
+                                Note
+                            </h4> -->
+                            <!-- <p>
+                                    <%= data.item.note %>
+                            </p> -->
+
+                    </div>
+        </div>
+        <!-- <footer class="itemsfooter"> -->
+                <% include footer.ejs %>
+        <!-- </footer> -->
+    </body>
+</html>
